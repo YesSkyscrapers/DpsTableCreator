@@ -17,7 +17,7 @@ const processDpsRecord = (recordObject) => {
     try
     {
         dpsRecord.link = processUtils.pullLink(record);
-        dpsRecord.dps = processUtils.pullDps(record);
+        dpsRecord.dps = processUtils.pullDps(record.replaceAll(dpsRecord.link, ''));
     
         let leftText = processUtils.removeDpsAndLink(record, dpsRecord.dps);
         let dividedLeftText = leftText.split(' ').filter(text => text.length > 1);

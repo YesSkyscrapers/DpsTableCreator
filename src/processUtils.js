@@ -18,9 +18,10 @@ const pullLink = (text) => {
 } 
 
 const pullDps = (text) => {
-    var NUMERIC_REGEXP = /( |<br>)[-]{0,1}[\d]*[\.]{0,1}[\d]+( |<br>)/g;
+    var NUMERIC_REGEXP = /( |<br>|)[-]{0,1}[\d]*[\.]{0,1}[\d]+(| |<br>)/g;
 
     let dps = text.match(NUMERIC_REGEXP);
+    
     if (dps == null)
         throw { errorType: errorManager.ReportTypes.CANT_PULL_DPS }
 
